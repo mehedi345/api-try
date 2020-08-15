@@ -9,20 +9,20 @@
 
 <body>
     <h1 id="task"></h1>
-    <h3>learn from <a id="explore_link"  href="">visit this site</a></h3>
+    <h3>learn from <a id="explore_link" href="">visit this site</a></h3>
     <script>
         function doSomething() {
             fetch('http://www.boredapi.com/api/activity')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("task").innerText = data.activity;
-                   
+
                 })
         }
         doSomething();
         setInterval(() => {
             doSomething();
-        }, 10000);
+        }, 5000);
     </script>
 </body>
 

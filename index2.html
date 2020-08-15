@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Am I</title>
 </head>
+
 <body>
     <h2>Name: <span id="user_name"></span> </h2>
     <p>Email: <span id="get_email"></span></p>
     <script>
-       function getRandomInfo(){
-        fetch('https://randomuser.me/api')
-        .then(response => response.json())
-        .then(data => {
-            const user =data.results[0];
-            const getEmail = user.email;
-            const name = user.name;
-            const userName = `${name.title} ${name.first} ${name.last}`;
-            document.getElementById("user_name").innerText = userName;
-            document.getElementById("get_email").innerText = getEmail;
-        })
-       }
-       getRandomInfo();
-       setInterval(() => {
-         getRandomInfo();  
-       }, 5000);
+        function getRandomInfo() {
+            fetch('https://randomuser.me/api')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.results[0];
+                    const getEmail = user.email;
+                    const name = user.name;
+                    const userName = `${name.title} ${name.first} ${name.last}`;
+                    document.getElementById("user_name").innerText = userName;
+                    document.getElementById("get_email").innerText = getEmail;
+                })
+        }
+        getRandomInfo();
+        setInterval(() => {
+            getRandomInfo();
+        }, 5000);
     </script>
 </body>
+
 </html>
